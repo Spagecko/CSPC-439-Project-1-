@@ -21,9 +21,9 @@
 function draw_title( context ) 
 {
     context.save( );
-    context.fillStyle = 'lightgrey';
+    context.fillStyle = 'lightgreen';
     context.font = "30px Arial";
-    context.fillText( "Grid", 150, 140 );
+    context.fillText( "Grid", 170, 40 );
     context.restore( );
 }
 // =====================================================  Main ====
@@ -33,13 +33,19 @@ function draw_title( context )
   // Draw a grid
   draw_grid( context, 10, 50, 'white', 'yellow' );
   draw_title( context );
+  context.fillStyle = "red";
+  // context.moveTo(0,0);
+  //context.lineTo(200,100);
+  //context.stroke()
 
+  //displayText is called when button "Click me!" is selected
   function displayText()
   {
     var x = document.getElementById("myDIV");
     x.innerHTML = "Hello";
   }
 
+  //hideText is called when button "reset" is selected
   function hideText()
   {
     var x = document.getElementById("myDIV");
