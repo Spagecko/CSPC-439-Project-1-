@@ -17,6 +17,20 @@ function draw_rect( ctx, stroke, fill )
     ctx.restore( );
 }
 
+function draw_rect( ctx, stroke, fill ) 
+{
+    stroke = stroke || 'lightgrey';
+    fill = fill || 'dimgrey';
+    ctx.save( );
+    ctx.strokeStyle = stroke;
+    ctx.fillStyle = fill;
+    ctx.lineWidth = 5;
+    ctx.rect(75, 50, canvas.width - 150, canvas.height - 100);
+    ctx.stroke();
+    ctx.fill();
+    ctx.restore( );
+}
+
 // =====================================================  draw_grid ====
 function draw_grid( rctx, rminor, rmajor, rstroke, rfill  ) 
 {
