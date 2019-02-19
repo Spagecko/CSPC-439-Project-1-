@@ -3,6 +3,7 @@
 // ------------------------------------------------------------
 
 // FUN. Draw filled rect.
+var globalY = 50; 
 function draw_rect( ctx, stroke, fill ) 
 {
     stroke = stroke || 'lightgrey';
@@ -15,21 +16,41 @@ function draw_rect( ctx, stroke, fill )
     ctx.stroke();
     ctx.fill();
     ctx.restore( );
+	
+
 }
 
-function draw_rect( ctx, stroke, fill ) 
+function draw_cell (ctx, x, y)
 {
-    stroke = stroke || 'lightgrey';
-    fill = fill || 'dimgrey';
-    ctx.save( );
-    ctx.strokeStyle = stroke;
-    ctx.fillStyle = fill;
-    ctx.lineWidth = 5;
-    ctx.rect(75, 50, canvas.width - 150, canvas.height - 100);
-    ctx.stroke();
-    ctx.fill();
-    ctx.restore( );
+	var stroke = 'transparent';
+	var  fill = 'red';
+	ctx.save();
+	ctx.strokeStyle = stroke;
+	ctx.fillStyle = fill;
+	ctx.lineWidth = 0;
+	var gen = 0;
+	width = canvas.width - 210;
+	ctx.rect(x,y,8.5,8.5);
+	ctx.fill();
+	ctx.restore();
 }
+ function drawArray (ctx, arr )
+ {
+	 var localX =  70; 
+	 var arrayLength = arr.length; 
+	 for(var i = 0 ; i < arrayLength; i++)
+	 {
+		 if(arr[i] === 1)
+		 {
+			 draw_cell(ctx,localX, globalY );
+		 }
+		 localX = localX + 10; 
+	 }
+	 globalY = globalY + 10; 
+ }
+
+
+
 
 // =====================================================  draw_grid ====
 function draw_grid( rctx, rminor, rmajor, rstroke, rfill  ) 
