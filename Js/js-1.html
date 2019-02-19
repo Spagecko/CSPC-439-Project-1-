@@ -2,7 +2,7 @@
 <title>This is an HTML canvas</title>
 <link rel="stylesheet" href="../assets/styles.css">
 </head>
-<button onclick = "displayText()">Click me!</button>
+<button onclick = " drawArray (context, DrawArr)">Click me!</button>
 <button onclick = "hideText()"> Reset</button>
 
 <div id="myDIV"></div>
@@ -27,6 +27,8 @@ function draw_title( context )
     context.restore( );
 }
 // =====================================================  Main ====
+var currentY = 50; 
+var DrawArr = [0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,1,0,0,0];
   var canvas = document.getElementById( "grid" );
   var context = canvas.getContext( "2d" );
   draw_rect( context );
@@ -34,6 +36,8 @@ function draw_title( context )
   draw_grid( context, 10, 50, 'white', 'yellow' );
   draw_title( context );
   context.fillStyle = "red";
+  
+	
   // context.moveTo(0,0);
   //context.lineTo(200,100);
   //context.stroke()
@@ -51,5 +55,13 @@ function draw_title( context )
     var x = document.getElementById("myDIV");
     x.innerHTML = "";
   }
+ // drawArray (context, DrawArr, 50);
+  
+  
+  //draw_cell(context, 70 ,50);
+ // draw_cell(context, 80 ,50);
+ // draw_cell(context, 100 ,50);
+  
+  
 </script>
 </html>
