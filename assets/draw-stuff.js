@@ -4,6 +4,66 @@
 
 // FUN. Draw filled rect.
 var globalY = 50; 
+
+function generateNewGen(ctx)
+{
+	var DrawArr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	var arrSet = [0,0,0];
+	var arrSet2 = [0,1,0];
+	var arrSet3 = [0,1,1];
+	var arrSet4 = [1,0,1];
+	
+	var tempArr = DrawArr; 
+	var arrayLength = DrawArr.length;
+	var newArr = [];
+	for( var m = 0; m < 30; m++)
+	{
+	for (var i = 0; i < arrayLength; i++)
+	{
+		tempArr = DrawArr;
+		var tempArrSet = [tempArr[i], tempArr[i+1],tempArr[i+2]];
+		
+	
+		
+			var set1 = tempArr[i];
+			var set2 = tempArr[i+1];
+			var set3 = tempArr[i+2];
+			
+			if(set1 === 0 && set2 === 0&& set3 === 0 )
+			{
+				newArr[i] = 1;
+			}
+			else if(set1 === 0  && set2 === 1&& set3 === 0 )
+			{
+				newArr[i] = 1;
+			}
+			else if(set1 === 0&& set2 === 1&& set3 === 1 )
+			{
+				newArr[i] = 1;
+			}
+			else if(set1 === 1 && set2 === 0&& set3 === 0 )
+			{
+				newArr[i] = 1;
+			}
+			else
+			{
+				
+				newArr[i] = 0;
+			}
+			
+				
+		
+	
+	}
+		DrawArr = newArr;
+		drawArray(ctx, DrawArr);
+	}
+	
+	
+
+	
+}
+
 function draw_rect( ctx, stroke, fill ) 
 {
     stroke = stroke || 'lightgrey';
