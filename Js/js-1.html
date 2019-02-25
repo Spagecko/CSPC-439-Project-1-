@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <button onclick = " drawArray (context, DrawArr)">Click me!</button>
-<button onclick = "hideText()"> Reset</button>
+<button onclick = "generateNewGen(DrawArr)"> Reset</button>
 
 <div id="myDIV"></div>
 
@@ -28,7 +28,7 @@ function draw_title( context )
 }
 // =====================================================  Main ====
 var currentY = 50; 
-var DrawArr = [0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,1,0,0,0];
+
   var canvas = document.getElementById( "grid" );
   var context = canvas.getContext( "2d" );
   draw_rect( context );
@@ -36,6 +36,9 @@ var DrawArr = [0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,1,0,0,0];
   draw_grid( context, 10, 50, 'white', 'yellow' );
   draw_title( context );
   context.fillStyle = "red";
+  
+
+	generateNewGen(context);
   
 	
   // context.moveTo(0,0);
