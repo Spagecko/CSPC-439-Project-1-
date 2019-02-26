@@ -21,16 +21,12 @@ function generateNewGen(ctx)
     drawArray(ctx, DrawArr);
 	for( var m = 1; m < 30; m++)
 	{
-	for (var i = 0; i < arrayLength; i++)
+        newArr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        tempArr = DrawArr;
+	for (var i = 1; i < arrayLength - 1; i++)
 	{
-		tempArr = DrawArr;
-		var tempArrSet = [tempArr[i], tempArr[i+1],tempArr[i+2]];
 		
-	
-		
-			var set1 = tempArr[i];
-			var set2 = tempArr[i+1];
-			var set3 = tempArr[i+2];
+		var tempArrSet = [tempArr[i-1], tempArr[i],tempArr[i+1]];
 			
             //call function compare to compare two arrays
 			if(compare(arrSet, tempArrSet))
@@ -76,7 +72,7 @@ function draw_rect( ctx, stroke, fill )
     ctx.strokeStyle = stroke;
     ctx.fillStyle = fill;
     ctx.lineWidth = 5;
-    ctx.rect(75, 50, canvas.width - 150, canvas.height - 100);
+    ctx.rect(80, 50, canvas.width - 150, canvas.height - 100);
     ctx.stroke();
     ctx.fill();
     ctx.restore( );
