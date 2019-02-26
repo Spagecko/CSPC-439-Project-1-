@@ -16,7 +16,10 @@ function generateNewGen(ctx)
 	var tempArr = DrawArr; 
 	var arrayLength = DrawArr.length;
 	var newArr = [];
-	for( var m = 0; m < 30; m++)
+
+    //Draw the first array and set variable m to 1 to offset the drawing
+    drawArray(ctx, DrawArr);
+	for( var m = 1; m < 30; m++)
 	{
 	for (var i = 0; i < arrayLength; i++)
 	{
@@ -29,19 +32,20 @@ function generateNewGen(ctx)
 			var set2 = tempArr[i+1];
 			var set3 = tempArr[i+2];
 			
-			if(set1 === 0 && set2 === 0&& set3 === 0 )
+            //call function compare to compare two arrays
+			if(compare(arrSet, tempArrSet))
 			{
 				newArr[i] = 1;
 			}
-			else if(set1 === 0  && set2 === 1&& set3 === 0 )
+			else if(compare(arrSet2, tempArrSet))
 			{
 				newArr[i] = 1;
 			}
-			else if(set1 === 0&& set2 === 1&& set3 === 1 )
+			else if(compare(arrSet3, tempArrSet))
 			{
 				newArr[i] = 1;
 			}
-			else if(set1 === 1 && set2 === 0&& set3 === 0 )
+			else if(compare(arrSet4, tempArrSet))
 			{
 				newArr[i] = 1;
 			}
@@ -139,4 +143,16 @@ function draw_grid( rctx, rminor, rmajor, rstroke, rfill  )
         if ( iy % rmajor == 0 ) {rctx.fillText( iy, 0, iy + 10 );}
     }
     rctx.restore( );
+}
+
+// this function compares both arrays one number at a time.
+// if one number doesn't match, return false. otherwise, return true
+function compare(a, b)
+{
+	for(var i = 0; i < a.length; i++)
+		{
+			if (a[i] !== b[i]) return false;
+		}
+
+	return true;
 }
