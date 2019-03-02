@@ -2,6 +2,9 @@
 CSPC-439 Project 1 (team: Low Effort Group) 
 Members: Bennett, Kim 
 
+Bennett Lawrenz 
+CWID:889955969 
+
 Kim-Lan Hoang
 CWID:895005478
 
